@@ -33,18 +33,20 @@ export default function Filmes (){
         
       ];
 
+      
+
     return(
         <S.Container id="filmes">
             <S.GeneroBox>
                 <S.SecondGenero>
-                <p>Popular</p>
-                <p>Drama</p>
-                <p>Ação</p>
-                <p>Aventura</p>
-                <p>Comédia</p>
-                <p>Crime</p>
-                <p>Fantasia</p>
-                <p>Família</p>
+                <p><a href="#popular">Popular</a></p>
+                <p><a>Drama</a></p>
+                <p><a>Ação</a></p>
+                <p><a>Aventura</a></p>
+                <p><a>Comédia</a></p>
+                <p><a>Crime</a></p>
+                <p><a>Fantasia</a></p>
+                <p><a>Família</a></p>
                 </S.SecondGenero>
                 {/* AiOutlineSearch */}
             </S.GeneroBox>
@@ -53,18 +55,19 @@ export default function Filmes (){
                 <h2>Últimos lançamentos</h2>
             </S.BoxTitle>
             
-                <Carousel breakPoints={breakPoints} itemPadding={[10, 15]}>
-                     {filmes.map((item) => (
-                <S.BoxFilms>
-                     <a href="https://www.themoviedb.org/" target="blank">
-                    <img src={item.image} alt={item.title}/>
+                <Carousel breakPoints={breakPoints} itemPadding={[10, 15]}>        
+                     {filmes.map((item) => (                      
+                <S.BoxFilms $primary>                            
+                    <img src={item.image} alt={item.title}/>     
+                    <a href="https://www.themoviedb.org/" target="blank">        
                     <h2>{item.title}</h2>
                     </a>
-                    <p>Data: 2023</p>
-                   
+                    <p>Data: 2023</p> 
+                    <h3>{item.overview}</h3> 
                 </S.BoxFilms>
                 
             ))}
+           
             </Carousel>
         </S.Container>
     )

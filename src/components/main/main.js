@@ -2,6 +2,9 @@ import React from "react"
 import * as S from "../styles"
 import { useState, useEffect } from "react"
 import axios from 'axios'
+import estrela from "../image/estrela-p.png"
+import { BsFillCaretRightFill } from 'react-icons/bs';
+import { FaFilm } from 'react-icons/fa';
 
 export default function Main() {
 
@@ -54,16 +57,34 @@ export default function Main() {
 
     return (
         <S.ContainerBox id="main">
-            {/* back={fundo.map(item => item.poster)} */}
             <S.MainStyle back={fundo.map(item => item.poster)} id="main">
 
                 {fundo.map(item => (
                     <S.Descrição  back={fundo.map(item => item.poster)}>
                         <h1>{item.title}</h1>
-                        <h3>IMDB: {item.vote_average}</h3>
-                        <h3>Lançamento: {item.release_date}</h3>
+                        <h3>1hr 23 min | Fantasia,Família | {item.release_date}</h3>
+                        <S.SecondLegenda>
+                            <S.Estrela>
+                        <img src={estrela} alt="imagem de uma estrela" />
+                        </S.Estrela>
+                        <h3>{item.vote_average}<span>/10</span></h3>
+                        <p>IMDb</p>
+                        </S.SecondLegenda>
                         <p>Sinopse{item.overview}</p>
-
+                        <S.ButaoBox>
+                            <S.PlayBox>
+                            <S.Icone>
+                            <BsFillCaretRightFill />
+                            </S.Icone>
+                               <a>Assistir agora</a>
+                            </S.PlayBox>
+                            <S.TrailerBox>
+                                <S.Icone>
+                            <FaFilm/>
+                            </S.Icone>
+                            <a>Trailer</a>
+                            </S.TrailerBox>
+                        </S.ButaoBox>
                     </S.Descrição>
                 ))}
             </S.MainStyle>

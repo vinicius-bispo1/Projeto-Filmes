@@ -42,13 +42,13 @@ export default function Filmes (){
             
                 <Carousel breakPoints={breakPoints} itemPadding={[10, 15]}>
                      {filmes.map((item) => (
-                <S.BoxFilms>
+                <S.BoxFilms $primary>
                     <a href="https://www.themoviedb.org/" target="blank">
                     <img src={item.image} alt={item.name}/>
                     <h2>{item.name}</h2>
                     </a>
                     <p>Data: {item.first_air_date}</p>
-                    
+                    <h3>{item.overview}</h3> 
                 </S.BoxFilms>
                 
             ))}
